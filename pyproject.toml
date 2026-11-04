@@ -1,0 +1,20 @@
+[project]
+name = "data-engineering-study"
+version = "0.1.0"
+description = "Data engineering study projects"
+readme = "README.md"
+authors = [
+    { name = "Victor Kauan", email = "victorkauan.dev@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=3.1.0",
+    "pyarrow>=26.0.1",
+]
+
+[project.scripts]
+data-engineering-study = "data_engineering_study:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
