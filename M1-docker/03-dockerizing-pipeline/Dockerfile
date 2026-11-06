@@ -1,8 +1,16 @@
 FROM python:3.13.11-slim
 
-RUN pip install pandas pyarrow
+COPY --from=docker.io/astral/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
-COPY pipeline.py pipeline.py
 
-ENTRYPOINT ["python", "pipeline.py"]
+ENV PATH="/app/.venv/bin:$PATH"
+
+COPY pyproject.toml uv.lock .python-version README.md ./
+COPY src/ ./src/
+
+RUN uv sync --locked
+
+COPY pipeline/pipeline.py pipeline.py
+
+ENTRYPOINT ["uv", "run", "python", "pipeline.py"]
