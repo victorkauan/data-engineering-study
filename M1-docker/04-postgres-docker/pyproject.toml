@@ -1,0 +1,26 @@
+[project]
+name = "04-postgres-docker"
+version = "0.1.0"
+description = "Running PostgreSQL with Docker"
+readme = "README.md"
+authors = [
+    { name = "Victor Kauan", email = "victorkauan.dev@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+04-postgres-docker = "_04_postgres_docker:main"
+
+[tool.uv.build-backend]
+module-name = "_04_postgres_docker"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pgcli>=4.7.1",
+    "psycopg[binary]>=3.3.8",
+]
