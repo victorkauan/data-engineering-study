@@ -1,0 +1,27 @@
+[project]
+name = "05-data-ingestion"
+version = "0.1.0"
+description = "NY Taxi Dataset and Data Ingestion"
+readme = "README.md"
+authors = [
+    { name = "Victor Kauan", email = "victorkauan.dev@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=3.1.1",
+]
+
+[project.scripts]
+05-data-ingestion = "_05_data_ingestion:main"
+
+[tool.uv.build-backend]
+module-name = "_05_data_ingestion"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+]
